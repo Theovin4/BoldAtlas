@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkVerse | Modern Dark-Themed Blog</title>
+    <meta name="description" content="DarkVerse is a modern dark-themed blog featuring technology, design, and development insights. Explore our SEO-optimized content.">
+    <meta name="keywords" content="blog, dark theme, technology, web design, development, SEO">
+    <meta name="author" content="DarkVerse">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://darkverse.blog/">
+    <meta property="og:title" content="DarkVerse | Modern Dark-Themed Blog">
+    <meta property="og:description" content="Explore technology, design, and development insights on our modern dark-themed blog.">
+    <meta property="og:image" content="https://darkverse.blog/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://darkverse.blog/">
+    <meta property="twitter:title" content="DarkVerse | Modern Dark-Themed Blog">
+    <meta property="twitter:description" content="Explore technology, design, and development insights on our modern dark-themed blog.">
+    <meta property="twitter:image" content="https://darkverse.blog/twitter-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1a1a1a',
+                            600: '#222222',
+                        },
+                        accent: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "DarkVerse Blog",
+      "url": "https://darkverse.blog/",
+      "description": "Modern dark-themed blog featuring technology, design, and development insights",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DarkVerse",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://darkverse.blog/logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .post-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tag {
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            background-color: #8b5cf6;
+            color: white;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .content img {
+            border-radius: 0.75rem;
+            margin: 1.5rem auto;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #e5e7eb;
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #d1d5db;
+        }
+        
+        .content a {
+            color: #8b5cf6;
+            text-decoration: underline;
+        }
+        
+        .content a:hover {
+            color: #7c3aed;
+        }
+        
+        .content blockquote {
+            border-left: 4px solid #8b5cf6;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .content ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .reading-progress {
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300 font-sans">
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="reading-progress"></div>
+    
+    <!-- Header -->
+    <header class="bg-dark-800 border-b border-dark-700 sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-accent-500 w-8 h-8 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">D</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">Dark<span class="gradient-text">Verse</span></h1>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-300 hover:text-white font-medium">Home</a>
+                    <a href="#" class="text-gray-300 hover:text-white font-medium">Articles</a>
+                    <a href="#" class="text-gray-300 hover:text-white font-medium">Categories</a>
+                    <a href="#" class="text-gray-300 hover:text-white font-medium">About</a>
+                    <a href="#" class="text-gray-300 hover:text-white font-medium">Contact</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button id="search-btn" class="text-gray-400 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                    <button id="theme-toggle" class="text-gray-400 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+                    <button class="md:hidden text-gray-400 hover:text-white" id="mobile-menu-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-dark-800 border-t border-dark-700 hidden" id="mobile-menu">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-3">
+                <a href="#" class="text-gray-300 hover:text-white font-medium">Home</a>
+                <a href="#" class="text-gray-300 hover:text-white font-medium">Articles</a>
+                <a href="#" class="text-gray-300 hover:text-white font-medium">Categories</a>
+                <a href="#" class="text-gray-300 hover:text-white font-medium">About</a>
+                <a href="#" class="text-gray-300 hover:text-white font-medium">Contact</a>
+            </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="container mx-auto px-4 py-3 hidden" id="search-bar">
+            <div class="relative">
+                <input type="text" placeholder="Search articles..." class="w-full bg-dark-700 border border-dark-600 rounded-lg py-2 px-4 pl-10 text-white focus:outline-none focus:ring-2 focus:ring-accent-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 top-2.5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-dark-800 to-dark-900 py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <span class="inline-block bg-dark-700 text-accent-500 text-sm font-semibold px-3 py-1 rounded-full mb-4">TRENDING</span>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">The Future of Web Development in 2023</h1>
+                <p class="text-xl text-gray-400 mb-8">Exploring the latest trends, tools, and technologies that are shaping the future of web development and how you can stay ahead of the curve.</p>
+                <div class="flex items-center justify-center space-x-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-gray-600"></div>
+                        <span class="text-gray-400">Alex Morgan</span>
+                    </div>
+                    <span class="text-gray-600">•</span>
+                    <span class="text-gray-400">May 15, 2023</span>
+                    <span class="text-gray-600">•</span>
+                    <span class="text-gray-400">8 min read</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Articles Section -->
+            <div class="w-full lg:w-2/3">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Article Cards -->
+                    <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
+                        <div class="h-48 overflow-hidden">
+                            <div class="bg-gray-700 w-full h-full"></div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">Web Design</span>
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">UI/UX</span>
+                            </div>
+                            <h2 class="text-xl font-bold text-white mb-3">Creating Accessible Dark Mode Interfaces</h2>
+                            <p class="text-gray-400 mb-4">Learn how to design dark mode interfaces that are not only visually appealing but also accessible to all users.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-6 h-6 rounded-full bg-gray-600"></div>
+                                    <span class="text-sm text-gray-500">Sarah Johnson</span>
+                                </div>
+                                <span class="text-sm text-gray-500">May 10, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
+                        <div class="h-48 overflow-hidden">
+                            <div class="bg-gray-700 w-full h-full"></div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">JavaScript</span>
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">Frameworks</span>
+                            </div>
+                            <h2 class="text-xl font-bold text-white mb-3">State Management in Modern Frontend</h2>
+                            <p class="text-gray-400 mb-4">Comparing different state management solutions and patterns for React, Vue, and Angular applications.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-6 h-6 rounded-full bg-gray-600"></div>
+                                    <span class="text-sm text-gray-500">Michael Chen</span>
+                                </div>
+                                <span class="text-sm text-gray-500">May 5, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
+                        <div class="h-48 overflow-hidden">
+                            <div class="bg-gray-700 w-full h-full"></div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">SEO</span>
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">Optimization</span>
+                            </div>
+                            <h2 class="text-xl font-bold text-white mb-3">Advanced SEO Techniques for Developers</h2>
+                            <p class="text-gray-400 mb-4">Technical SEO strategies that every developer should implement to improve website visibility and ranking.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-6 h-6 rounded-full bg-gray-600"></div>
+                                    <span class="text-sm text-gray-500">Emma Davis</span>
+                                </div>
+                                <span class="text-sm text-gray-500">April 28, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
+                        <div class="h-48 overflow-hidden">
+                            <div class="bg-gray-700 w-full h-full"></div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">CSS</span>
+                                <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">Tailwind</span>
+                            </div>
+                            <h2 class="text-xl font-bold text-white mb-3">Mastering Tailwind CSS for Rapid Development</h2>
+                            <p class="text-gray-400 mb-4">Advanced techniques and best practices for using Tailwind CSS to build responsive, maintainable interfaces.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-6 h-6 rounded-full bg-gray-600"></div>
+                                    <span class="text-sm text-gray-500">James Wilson</span>
+                                </div>
+                                <span class="text-sm text-gray-500">April 22, 2023</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Load More Button -->
+                <div class="text-center mt-12">
+                    <button id="load-more" class="bg-accent-500 hover:bg-accent-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Load More Articles</button>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="w-full lg:w-1/3">
+                <!-- About Card -->
+                <div class="bg-dark-800 rounded-xl border border-dark-700 p-6 mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">About DarkVerse</h3>
+                    <p class="text-gray-400 mb-4">DarkVerse is a modern blog dedicated to web development, design, and technology. We explore the latest trends and share insights to help you grow as a developer.</p>
+                    <button class="bg-dark-700 hover:bg-dark-600 text-white font-medium py-2 px-4 rounded-lg transition duration-300 w-full">Subscribe</button>
+                </div>
+                
+                <!-- Categories -->
+                <div class="bg-dark-800 rounded-xl border border-dark-700 p-6 mb-8">
+                    <h3 class="text-xl font-bold text-white mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>Web Development</span> <span>24</span></a></li>
+                        <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>UI/UX Design</span> <span>18</span></a></li>
+                        <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>JavaScript</span> <span>32</span></a></li>
+                        <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>CSS & Frameworks</span> <span>15</span></a></li>
+                        <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>SEO Optimization</span> <span>9</span></a></li>
+                        <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>Tools & Resources</span> <span>12</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Popular Posts -->
+                <div class="bg-dark-800 rounded-xl border border-dark-700 p-6">
+                    <h3 class="text-xl font-bold text-white mb-4">Popular Posts</h3>
+                    <div class="space-y-4">
+                        <a href="#" class="flex items-center space-x-3 group">
+                            <div class="w-16 h-16 rounded-lg bg-gray-700 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-medium text-white group-hover:text-accent-500">The Dark Theme Design Handbook</h4>
+                                <p class="text-sm text-gray-500">May 2, 2023</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 group">
+                            <div class="w-16 h-16 rounded-lg bg-gray-700 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-medium text-white group-hover:text-accent-500">Building a Portfolio with Next.js</h4>
+                                <p class="text-sm text-gray-500">April 18, 2023</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 group">
+                            <div class="w-16 h-16 rounded-lg bg-gray-700 flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-medium text-white group-hover:text-accent-500">CSS Grid vs Flexbox: When to Use</h4>
+                                <p class="text-sm text-gray-500">April 10, 2023</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Featured Article -->
+        <div class="mt-16 bg-dark-800 rounded-xl border border-dark-700 overflow-hidden">
+            <div class="md:flex">
+                <div class="md:w-1/2">
+                    <div class="h-64 md:h-full bg-gray-700"></div>
+                </div>
+                <div class="md:w-1/2 p-8">
+                    <span class="inline-block bg-dark-700 text-accent-500 text-sm font-semibold px-3 py-1 rounded-full mb-4">FEATURED</span>
+                    <h2 class="text-3xl font-bold text-white mb-4">The Psychology of Dark Mode: Why We Love It</h2>
+                    <p class="text-gray-400 mb-6">Exploring the psychological reasons behind the popularity of dark mode interfaces and how they affect user experience and productivity.</p>
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full bg-gray-600"></div>
+                            <span class="text-gray-400">Jessica Lee</span>
+                        </div>
+                        <span class="text-gray-600">•</span>
+                        <span class="text-gray-400">12 min read</span>
+                    </div>
+                    <button class="mt-6 bg-accent-500 hover:bg-accent-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Read Article</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Newsletter -->
+    <section class="bg-dark-800 border-y border-dark-700 py-16 mt-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Join Our Newsletter</h2>
+                <p class="text-gray-400 mb-8">Subscribe to get the latest articles, resources, and insights delivered directly to your inbox.</p>
+                <div class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                    <input type="email" placeholder="Your email address" class="flex-grow bg-dark-700 border border-dark-600 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-accent-500">
+                    <button class="bg-accent-500 hover:bg-accent-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300">Subscribe</button>
+                </div>
+                <p class="text-gray-500 text-sm mt-3">No spam. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark-900 pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-accent-500 w-8 h-8 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">D</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white">Dark<span class="gradient-text">Verse</span></h3>
+                    </div>
+                    <p class="text-gray-500 mb-4">A modern blog exploring web development, design, and technology.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-500 hover:text-white">Web Development</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">JavaScript</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">CSS & Frameworks</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">SEO Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-500 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">Our Team</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-gray-500 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="text-gray-500">hello@darkverse.blog</li>
+                        <li class="text-gray-500">+1 (555) 123-4567</li>
+                        <li class="text-gray-500">San Francisco, CA</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-dark-800 pt-8 text-center">
+                <p class="text-gray-600">© 2023 DarkVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Search Toggle
+        const searchBtn = document.getElementById('search-btn');
+        const searchBar = document.getElementById('search-bar');
+        
+        searchBtn.addEventListener('click', () => {
+            searchBar.classList.toggle('hidden');
+        });
+        
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            // Save preference to localStorage
+            const isDark = htmlElement.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        });
+        
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        
+        // Load More Articles
+        const loadMoreBtn = document.getElementById('load-more');
+        const articlesContainer = document.querySelector('.grid');
+        
+        loadMoreBtn.addEventListener('click', () => {
+            // Simulate loading more articles
+            for (let i = 0; i < 2; i++) {
+                const newArticle = document.createElement('article');
+                newArticle.className = 'post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in';
+                newArticle.innerHTML = `
+                    <div class="h-48 overflow-hidden">
+                        <div class="bg-gray-700 w-full h-full"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">New</span>
+                            <span class="tag bg-dark-700 text-accent-500 text-xs font-medium px-2 py-1 rounded">Technology</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white mb-3">New Article Title ${Math.floor(Math.random() * 100)}</h2>
+                        <p class="text-gray-400 mb-4">This is a newly loaded article preview text that appears here.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full bg-gray-600"></div>
+                                <span class="text-sm text-gray-500">New Author</span>
+                            </div>
+                            <span class="text-sm text-gray-500">Today</span>
+                        </div>
+                    </div>
+                `;
+                articlesContainer.appendChild(newArticle);
+            }
+        });
+        
+        // Reading Progress Bar
+        const readingProgress = document.getElementById('reading-progress');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / docHeight) * 100;
+            readingProgress.style.width = `${scrolled}%`;
+        });
+        
+        // Fade-in animation for elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.5s ease-in forwards';
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+    </script>
+</body>
+</html>b
