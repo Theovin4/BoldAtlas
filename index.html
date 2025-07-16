@@ -14,10 +14,10 @@
     <meta property="twitter:title" content="Boldatlas | Modern Dark-Themed Blog">
     <meta property="twitter:description" content="Explore technology, design, and development insights on our modern dark-themed blog.">
     <meta property="twitter:image" content="https://Boldatlas.blog/twitter-image.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="boldatlas.jpg">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -44,13 +44,13 @@
             }
         }
     </script>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Google AdSense -->
     <script data-ad-client="ca-pub-1037358753872630" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
+
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
@@ -69,47 +69,39 @@
       }
     }
     </script>
-    
+
     <style>
         .gradient-text {
             background: linear-gradient(90deg, #8b5cf6, #ec4899);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
         .post-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .post-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
         }
-        
         .tag {
             transition: all 0.2s ease;
         }
-        
         .tag:hover {
             background-color: #8b5cf6;
             color: white;
         }
-        
         .fade-in {
             animation: fadeIn 0.5s ease-in;
         }
-        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
         .content img {
             border-radius: 0.75rem;
             margin: 1.5rem auto;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
         }
-        
         .content h2 {
             font-size: 1.5rem;
             font-weight: 600;
@@ -117,22 +109,18 @@
             margin-bottom: 1rem;
             color: #e5e7eb;
         }
-        
         .content p {
             margin-bottom: 1rem;
             line-height: 1.7;
             color: #d1d5db;
         }
-        
         .content a {
             color: #8b5cf6;
             text-decoration: underline;
         }
-        
         .content a:hover {
             color: #7c3aed;
         }
-        
         .content blockquote {
             border-left: 4px solid #8b5cf6;
             padding-left: 1.5rem;
@@ -140,17 +128,14 @@
             color: #9ca3af;
             font-style: italic;
         }
-        
         .content ul {
             list-style-type: disc;
             padding-left: 1.5rem;
             margin-bottom: 1rem;
         }
-        
         .content li {
             margin-bottom: 0.5rem;
         }
-        
         .reading-progress {
             height: 4px;
             background: linear-gradient(90deg, #8b5cf6, #ec4899);
@@ -164,7 +149,7 @@
 <body class="bg-dark-900 text-gray-300 font-sans">
     <!-- Reading Progress Bar -->
     <div class="reading-progress" id="reading-progress"></div>
-    
+
     <!-- Header -->
     <header class="bg-dark-800 border-b border-dark-700 sticky top-0 z-40">
         <div class="container mx-auto px-4 py-4">
@@ -176,7 +161,6 @@
                     </div>
                     <h1 class="text-2xl font-bold text-white">Boldatlas</h1>
                 </div>
-                
                 <nav class="hidden md:flex space-x-8">
                     <a href="#" class="text-gray-300 hover:text-white font-medium">Home</a>
                     <a href="#" class="text-gray-300 hover:text-white font-medium">Articles</a>
@@ -184,7 +168,6 @@
                     <a href="#" class="text-gray-300 hover:text-white font-medium">About</a>
                     <a href="#" class="text-gray-300 hover:text-white font-medium">Contact</a>
                 </nav>
-                
                 <div class="flex items-center space-x-4">
                     <button id="search-btn" class="text-gray-400 hover:text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -204,7 +187,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="md:hidden bg-dark-800 border-t border-dark-700 hidden" id="mobile-menu">
             <div class="container mx-auto px-4 py-4 flex flex-col space-y-3">
@@ -215,7 +198,7 @@
                 <a href="#" class="text-gray-300 hover:text-white font-medium">Contact</a>
             </div>
         </div>
-        
+
         <!-- Search Bar -->
         <div class="container mx-auto px-4 py-3 hidden" id="search-bar">
             <div class="relative">
@@ -226,7 +209,7 @@
             </div>
         </div>
     </header>
-    
+
     <!-- Hero Section -->
     <section class="bg-gradient-to-br from-dark-800 to-dark-900 py-16">
         <div class="container mx-auto px-4">
@@ -247,7 +230,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-12">
         <div class="flex flex-col lg:flex-row gap-8">
@@ -275,7 +258,7 @@
                             </div>
                         </div>
                     </article>
-                    
+
                     <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
                         <div class="h-48 overflow-hidden">
                             <div class="bg-gray-700 w-full h-full"></div>
@@ -296,7 +279,7 @@
                             </div>
                         </div>
                     </article>
-                    
+
                     <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
                         <div class="h-48 overflow-hidden">
                             <div class="bg-gray-700 w-full h-full"></div>
@@ -317,7 +300,7 @@
                             </div>
                         </div>
                     </article>
-                    
+
                     <article class="post-card bg-dark-800 rounded-xl overflow-hidden border border-dark-700 fade-in">
                         <div class="h-48 overflow-hidden">
                             <div class="bg-gray-700 w-full h-full"></div>
@@ -339,13 +322,13 @@
                         </div>
                     </article>
                 </div>
-                
+
                 <!-- Load More Button -->
                 <div class="text-center mt-12">
                     <button id="load-more" class="bg-accent-500 hover:bg-accent-600 text-white font-medium py-2 px-6 rounded-lg transition duration-300">Load More Articles</button>
                 </div>
             </div>
-            
+
             <!-- Sidebar -->
             <div class="w-full lg:w-1/3">
                 <!-- About Card -->
@@ -354,7 +337,7 @@
                     <p class="text-gray-400 mb-4">Boldatlas is a modern blog dedicated to web development, design, and technology. We explore the latest trends and share insights to help you grow as a developer.</p>
                     <button class="bg-dark-700 hover:bg-dark-600 text-white font-medium py-2 px-4 rounded-lg transition duration-300 w-full">Subscribe</button>
                 </div>
-                
+
                 <!-- Categories -->
                 <div class="bg-dark-800 rounded-xl border border-dark-700 p-6 mb-8">
                     <h3 class="text-xl font-bold text-white mb-4">Categories</h3>
@@ -367,7 +350,7 @@
                         <li><a href="#" class="flex justify-between text-gray-400 hover:text-white"><span>Tools & Resources</span> <span>12</span></a></li>
                     </ul>
                 </div>
-                
+
                 <!-- Popular Posts -->
                 <div class="bg-dark-800 rounded-xl border border-dark-700 p-6">
                     <h3 class="text-xl font-bold text-white mb-4">Popular Posts</h3>
@@ -397,7 +380,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Featured Article -->
         <div class="mt-16 bg-dark-800 rounded-xl border border-dark-700 overflow-hidden">
             <div class="md:flex">
@@ -421,7 +404,7 @@
             </div>
         </div>
     </main>
-    
+
     <!-- Newsletter -->
     <section class="bg-dark-800 border-y border-dark-700 py-16 mt-16">
         <div class="container mx-auto px-4">
@@ -436,7 +419,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="bg-dark-900 pt-16 pb-8">
         <div class="container mx-auto px-4">
@@ -473,7 +456,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4">Categories</h4>
                     <ul class="space-y-2">
@@ -484,7 +467,7 @@
                         <li><a href="#" class="text-gray-500 hover:text-white">SEO Optimization</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4">Company</h4>
                     <ul class="space-y-2">
@@ -495,7 +478,7 @@
                         <li><a href="#" class="text-gray-500 hover:text-white">Privacy Policy</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
                     <ul class="space-y-2">
@@ -505,52 +488,52 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="border-t border-dark-800 pt-8 text-center">
                 <p class="text-gray-600">© 2025 Boldatlas. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
+
         // Search Toggle
         const searchBtn = document.getElementById('search-btn');
         const searchBar = document.getElementById('search-bar');
-        
+
         searchBtn.addEventListener('click', () => {
             searchBar.classList.toggle('hidden');
         });
-        
+
         // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
-        
+
         themeToggle.addEventListener('click', () => {
             htmlElement.classList.toggle('dark');
             // Save preference to localStorage
             const isDark = htmlElement.classList.contains('dark');
             localStorage.setItem('darkMode', isDark);
         });
-        
+
         // Check for saved theme preference
         if (localStorage.getItem('darkMode') === 'true') {
             htmlElement.classList.add('dark');
         } else {
             htmlElement.classList.remove('dark');
         }
-        
+
         // Load More Articles
         const loadMoreBtn = document.getElementById('load-more');
         const articlesContainer = document.querySelector('.grid');
-        
+
         loadMoreBtn.addEventListener('click', () => {
             // Simulate loading more articles
             for (let i = 0; i < 2; i++) {
@@ -579,20 +562,20 @@
                 articlesContainer.appendChild(newArticle);
             }
         });
-        
+
         // Reading Progress Bar
         const readingProgress = document.getElementById('reading-progress');
-        
+
         window.addEventListener('scroll', () => {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (scrollTop / docHeight) * 100;
             readingProgress.style.width = `${scrolled}%`;
         });
-        
+
         // Fade-in animation for elements
         const fadeElements = document.querySelectorAll('.fade-in');
-        
+
         const fadeInObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -601,7 +584,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        
+
         fadeElements.forEach(element => {
             fadeInObserver.observe(element);
         });
