@@ -1,14 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1037358753872630" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Boldatlas</title>
-    <meta name="description" content="Contact Boldatlas. Get in touch for feedback, questions, or collaboration opportunities.">
+    <meta name="description" content="Contact Boldatlas for inquiries, feedback, or collaboration opportunities.">
+    <meta name="author" content="Boldatlas">
+    <meta property="og:url" content="https://Boldatlas.blog/contact.html">
+    <meta property="og:title" content="Contact | Boldatlas">
+    <meta property="og:description" content="Contact Boldatlas for inquiries, feedback, or collaboration opportunities.">
+    <meta property="og:image" content="https://Boldatlas.blog/og-image.jpg">
+    <meta property="twitter:url" content="https://Boldatlas.blog/contact.html">
+    <meta property="twitter:title" content="Contact | Boldatlas">
+    <meta property="twitter:description" content="Contact Boldatlas for inquiries, feedback, or collaboration opportunities.">
+    <meta property="twitter:image" content="https://Boldatlas.blog/twitter-image.jpg">
     <link rel="icon" type="image/jpeg" href="boldatlas.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1037358753872630" crossorigin="anonymous"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1a1a1a',
+                            600: '#222222',
+                        },
+                        accent: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .post-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        .tag {
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            background-color: #8b5cf6;
+            color: white;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reading-progress {
+            height: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 50;
+        }
+    </style>
 </head>
 <body class="bg-dark-900 text-gray-300 font-sans">
     <div class="reading-progress" id="reading-progress"></div>
@@ -28,25 +96,12 @@
                     <a href="about.html" class="text-gray-300 hover:text-white font-medium">About</a>
                     <a href="contact.html" class="text-gray-300 hover:text-white font-medium">Contact</a>
                 </nav>
-            </div>
-        </div>
-    </header>
-    <section class="bg-gradient-to-br from-dark-800 to-dark-900 py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <span class="inline-block bg-dark-700 text-accent-500 text-sm font-semibold px-3 py-1 rounded-full mb-4">CONTACT</span>
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Contact Boldatlas</h1>
-                <p class="text-xl text-gray-400 mb-8">Get in touch for feedback, questions, or collaboration opportunities.</p>
-            </div>
-        </div>
-    </section>
-    <main class="container mx-auto px-4 py-12">
-        <div class="text-center text-gray-400">Email: hello@Boldatlas.blog<br>Phone: +1 (555) 123-4567</div>
-    </main>
-    <footer class="bg-dark-900 pt-16 pb-8">
-        <div class="container mx-auto px-4 text-center text-gray-600">
-            © 2025 Boldatlas. All rights reserved.
-        </div>
-    </footer>
-</body>
-</html>
+                <div class="flex items-center space-x-4">
+                    <button id="search-btn" class="text-gray-400 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                    <button id="theme-toggle" class="text-gray-400 hover:text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728

@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1037358753872630" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories | Boldatlas</title>
-    <meta name="description" content="Browse categories on Boldatlas. Find articles by topic: web development, design, health, education, and more.">
+    <meta name="description" content="Explore categories on Boldatlas: lifestyle, health, education, sports, politics, and more.">
+    <meta name="author" content="Boldatlas">
+    <meta property="og:url" content="https://Boldatlas.blog/categories.html">
+    <meta property="og:title" content="Categories | Boldatlas">
+    <meta property="og:description" content="Explore categories on Boldatlas: lifestyle, health, education, sports, politics, and more.">
+    <meta property="og:image" content="https://Boldatlas.blog/og-image.jpg">
+    <meta property="twitter:url" content="https://Boldatlas.blog/categories.html">
+    <meta property="twitter:title" content="Categories | Boldatlas">
+    <meta property="twitter:description" content="Explore categories on Boldatlas: lifestyle, health, education, sports, politics, and more.">
+    <meta property="twitter:image" content="https://Boldatlas.blog/twitter-image.jpg">
     <link rel="icon" type="image/jpeg" href="boldatlas.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1037358753872630" crossorigin="anonymous"></script>
-</head>
-<body class="bg-dark-900 text-gray-300 font-sans">
-    <div class="reading-progress" id="reading-progress"></div>
-    <header class="bg-dark-800 border-b border-dark-700 sticky top-0 z-40">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-white">
-                        <img src="boldatlas.jpg" alt="Boldatlas Logo" class="w-full h-full object-contain">
-                    </div>
-                    <h1 class="text-2xl font-bold text-white">Boldatlas</h1>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-300 hover:text-white font-medium">Home</a>
-                    <a href="articles.html" class="text-gray-300 hover:text-white font-medium">Articles</a>
-                    <a href="categories.html" class="text-gray-300 hover:text-white font-medium">Categories</a>
-                    <a href="about.html" class="text-gray-300 hover:text-white font-medium">About</a>
-                    <a href="contact.html" class="text-gray-300 hover:text-white font-medium">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <section class="bg-gradient-to-br from-dark-800 to-dark-900 py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto text-center">
-                <span class="inline-block bg-dark-700 text-accent-500 text-sm font-semibold px-3 py-1 rounded-full mb-4">CATEGORIES</span>
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">Browse Categories</h1>
-                <p class="text-xl text-gray-400 mb-8">Find articles by topic: web development, design, health, education, sports, politics, and more.</p>
-            </div>
-        </div>
-    </section>
-    <main class="container mx-auto px-4 py-12">
-        <div class="text-center text-gray-400">Select a category to explore related articles.</div>
-    </main>
-    <footer class="bg-dark-900 pt-16 pb-8">
-        <div class="container mx-auto px-4 text-center text-gray-600">
-            © 2025 Boldatlas. All rights reserved.
-        </div>
-    </footer>
-</body>
-</html>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0a0a0a',
+                            800: '#121212',
+                            700: '#1a1a1a',
+                            600: '#222222',
+                        },
+                        accent: {
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .category-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
